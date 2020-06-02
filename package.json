@@ -1,0 +1,44 @@
+{
+  "name": "lib-name",
+  "version": "1.0.0",
+  "description": "lib desc",
+  "private": true,
+  "scripts": {
+    "start": "karma start",
+    "build": "rimraf ./lib && tsc -d && webpack",
+    "bundle": "webpack",
+    "prepublish": "rimraf ./lib && tsc -d",
+    "test": "mocha test/**.ts --require ts-node/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PoisonousJohn/typeScriptLibTemplate.git"
+  },
+  "keywords": [
+    "typescript",
+    "library"
+  ],
+  "author": "PoisonousJohn<fateev.pro>",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@types/chai": "^3.4.35",
+    "@types/mocha": "^2.2.40",
+    "awesome-typescript-loader": "^3.1.2",
+    "chai": "^3.5.0",
+    "karma": "^1.5.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-mocha": "^1.0.1",
+    "karma-typescript-preprocessor": "^0.3.1",
+    "karma-webpack": "^2.0.3",
+    "mocha": "^7.2.0",
+    "rimraf": "^2.5.2",
+    "ts-loader": "^7.0.5",
+    "ts-node": "^2.1.0",
+    "typescript": "3.9.x",
+    "webpack": "^4.43.0",
+    "webpack-cli": ">=3.3.11",
+    "webpack-dev-server": ">=3.11.0"
+  },
+  "dependencies": {}
+}
