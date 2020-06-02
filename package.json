@@ -1,7 +1,7 @@
 {
-  "name": "lib-name",
+  "name": "tilda-required-product-variant",
   "version": "1.0.0",
-  "description": "lib desc",
+  "description": "Makes product variant a required field",
   "private": true,
   "scripts": {
     "start": "karma start",
@@ -21,6 +21,7 @@
   "author": "PoisonousJohn<fateev.pro>",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
+    "@types/jquery": "^3.3.38",
     "@types/chai": "^3.4.35",
     "@types/mocha": "^2.2.40",
     "awesome-typescript-loader": "^3.1.2",
@@ -40,5 +41,7 @@
     "webpack-cli": ">=3.3.11",
     "webpack-dev-server": ">=3.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
 }
