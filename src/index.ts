@@ -45,7 +45,7 @@ export class RequiredProductVariant {
         const isError = selector.val().toString() === "";
         let errorText = this.getVariantErrorElement();
         if (!errorText.length && isError) {
-            this.createVariantErrorElement('');
+            this.createVariantErrorElement('Пожалуйста, выберите вариант');
         } else if (errorText.length && !isError) {
             errorText.remove();
         }
