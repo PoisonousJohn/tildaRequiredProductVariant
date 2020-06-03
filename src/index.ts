@@ -2,17 +2,19 @@ import * as jQuery from "jquery";
 
 export class RequiredProductVariant {
     getVariantErrorElement() {
-        return $('.t-store__prod-popup__container .t-input-error')
+        return jQuery('.t-store__prod-popup__container .t-input-error')
     }
 
     createVariantErrorElement(text: string) {
         const el = document.createElement('div');
         el.innerText = text;
         el.className = 't-input-error';
+        el.style.display = 'block';
+        jQuery('.t-store__prod-popup__container .t-product__option').append(el);
     }
 
     getVariantSelector() {
-        return $('.t-store__prod-popup__container select')
+        return jQuery('.t-store__prod-popup__container select')
     }
 
     onProductCardClick(el: JQuery<any>) {
@@ -23,8 +25,14 @@ export class RequiredProductVariant {
     }
 
     bindProductPopupEvents() {
-        $('.t-store__prod-popup__container a').click((event) => {
-            if (this.validateProductVariantRequired()) event.stopPropagation();
+        const submitBtn = jQuery('.t-store__prod-popup__container a');
+        submitBtn.off('click');
+        submitBtn.click((event) => {
+            if (this.validateProductVariantRequired()) {
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+            }
         })
         this.getVariantSelector().change(() => this.validateProductVariantRequired());
     }
@@ -34,11 +42,11 @@ export class RequiredProductVariant {
      */
     validateProductVariantRequired() {
         const selector = this.getVariantSelector();
-        const isError = selector.val().toString() !== "";
+        const isError = selector.val().toString() === "";
         let errorText = this.getVariantErrorElement();
-        if (!errorText && isError) {
-            this.createVariantErrorElement('test');
-        } else if (errorText && !isError) {
+        if (!errorText.length && isError) {
+            this.createVariantErrorElement('');
+        } else if (errorText.length && !isError) {
             errorText.remove();
         }
 
@@ -46,12 +54,14 @@ export class RequiredProductVariant {
     }
 
     setup() {
-        $('.js-product:has(.js-product-edition-option-variants) a[href="#order"]').each((idx, htmlEl) => {
-            const el = $(htmlEl);
+        jQuery('.js-product:has(.js-product-edition-option-variants) a[href="#order"]').each((_, htmlEl) => {
+            const el = jQuery(htmlEl);
             el.off('click');
             el.click((e) => {
-                e.preventDefault();
                 this.onProductCardClick(el);
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                e.stopPropagation();
             })
         })
     }
