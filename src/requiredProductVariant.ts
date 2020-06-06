@@ -35,6 +35,7 @@ export class RequiredProductVariant {
             }
         })
         this.getVariantSelector().change(() => this.validateProductVariantRequired())
+        window.tcart__addEvent__links()
     }
 
     /**
