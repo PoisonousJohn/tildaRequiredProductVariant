@@ -1,2 +1,211 @@
-var RequiredProductVariant=function(t){var e={};function r(o){if(e[o])return e[o].exports;var n=e[o]={i:o,l:!1,exports:{}};return t[o].call(n.exports,n,n.exports,r),n.l=!0,n.exports}return r.m=t,r.c=e,r.d=function(t,e,o){r.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:o})},r.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},r.t=function(t,e){if(1&e&&(t=r(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var o=Object.create(null);if(r.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var n in t)r.d(o,n,function(e){return t[e]}.bind(null,n));return o},r.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return r.d(e,"a",e),e},r.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},r.p="",r(r.s=0)}([function(t,e,r){r(1),t.exports=r(3)},function(t,e,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.RequiredProductVariant=void 0;var o=r(2),n=function(){function t(){}return t.prototype.getVariantErrorElement=function(){return o(".t-store__prod-popup__container .t-input-error")},t.prototype.createVariantErrorElement=function(t){var e=document.createElement("div");e.innerText=t,e.className="t-input-error",e.style.display="block",o(".t-store__prod-popup__container .t-product__option").append(e)},t.prototype.getVariantSelector=function(){return o(".t-store__prod-popup__container select")},t.prototype.onProductCardClick=function(t){t.closest(".js-product").find(' a[href="#prodpopup"]:first').trigger("click"),this.bindProductPopupEvents()},t.prototype.bindProductPopupEvents=function(){var t=this,e=o(".t-store__prod-popup__container a");e.off("click"),e.click((function(e){t.validateProductVariantRequired()&&(e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation())})),this.getVariantSelector().change((function(){return t.validateProductVariantRequired()}))},t.prototype.validateProductVariantRequired=function(){var t=""===this.getVariantSelector().val().toString(),e=this.getVariantErrorElement();return!e.length&&t?this.createVariantErrorElement("Пожалуйста, выберите вариант"):e.length&&!t&&e.remove(),t},t.prototype.setup=function(){var t=this;o(document).ready((function(){console.log("ready"),o('.js-product:has(.js-product-edition-option-variants) a[href="#order"]').each((function(e,r){var n=o(r);n.off("click"),n.click((function(e){t.onProductCardClick(n),e.preventDefault(),e.stopImmediatePropagation(),e.stopPropagation()}))}))}))},t}();e.RequiredProductVariant=n},function(t,e){t.exports=jQuery},function(t,e,r){}]);
+var RequiredProductVariant =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/index.css":
+/*!***********************!*\
+  !*** ./src/index.css ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/index.ts":
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RequiredProductVariant = void 0;
+var jQuery = __webpack_require__(/*! jquery */ "jquery");
+var RequiredProductVariant = /** @class */ (function () {
+    function RequiredProductVariant() {
+    }
+    RequiredProductVariant.prototype.getVariantErrorElement = function () {
+        return jQuery('.t-store__prod-popup__container .t-input-error');
+    };
+    RequiredProductVariant.prototype.createVariantErrorElement = function (text) {
+        var el = document.createElement('div');
+        el.innerText = text;
+        el.className = 't-input-error';
+        el.style.display = 'block';
+        jQuery('.t-store__prod-popup__container .t-product__option').append(el);
+    };
+    RequiredProductVariant.prototype.getVariantSelector = function () {
+        return jQuery('.t-store__prod-popup__container select');
+    };
+    RequiredProductVariant.prototype.onProductCardClick = function (el) {
+        el.closest('.js-product')
+            .find(' a[href="#prodpopup"]:first')
+            .trigger('click');
+        this.bindProductPopupEvents();
+    };
+    RequiredProductVariant.prototype.bindProductPopupEvents = function () {
+        var _this = this;
+        var submitBtn = jQuery('.t-store__prod-popup__container a');
+        submitBtn.off('click');
+        submitBtn.click(function (event) {
+            if (_this.validateProductVariantRequired()) {
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+            }
+        });
+        this.getVariantSelector().change(function () { return _this.validateProductVariantRequired(); });
+    };
+    /**
+     * Return true in case of an error
+     */
+    RequiredProductVariant.prototype.validateProductVariantRequired = function () {
+        var selector = this.getVariantSelector();
+        var isError = selector.val().toString() === "";
+        var errorText = this.getVariantErrorElement();
+        if (!errorText.length && isError) {
+            this.createVariantErrorElement('Пожалуйста, выберите вариант');
+        }
+        else if (errorText.length && !isError) {
+            errorText.remove();
+        }
+        return isError;
+    };
+    RequiredProductVariant.prototype.setup = function () {
+        var _this = this;
+        jQuery(document).ready(function () {
+            console.log('ready');
+            jQuery('.js-product:has(.js-product-edition-option-variants) a[href="#order"]').each(function (_, htmlEl) {
+                var el = jQuery(htmlEl);
+                el.off('click');
+                el.click(function (e) {
+                    _this.onProductCardClick(el);
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    e.stopPropagation();
+                });
+            });
+        });
+    };
+    return RequiredProductVariant;
+}());
+exports.RequiredProductVariant = RequiredProductVariant;
+
+
+/***/ }),
+
+/***/ 0:
+/*!********************************************!*\
+  !*** multi ./src/index.ts ./src/index.css ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! /home/jp/git/tildaRequiredProductVariant/src/index.ts */"./src/index.ts");
+module.exports = __webpack_require__(/*! /home/jp/git/tildaRequiredProductVariant/src/index.css */"./src/index.css");
+
+
+/***/ }),
+
+/***/ "jquery":
+/*!*************************!*\
+  !*** external "jQuery" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = jQuery;
+
+/***/ })
+
+/******/ });
 //# sourceMappingURL=lib.js.map
