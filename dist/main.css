@@ -1,5 +1,7 @@
-.js-product-controls-wrapper {
+.t-store__card .js-product-controls-wrapper {
     display: none;
 }
 
-/*# sourceMappingURL=main.css.map*/
+.t-store__prod-popup__container .js-product-controls-wrapper {
+    display: block;
+}
