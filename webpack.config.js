@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = (function (options) {
 
     return {
-        entry: [__dirname + "/src/index.ts", __dirname + "/src/index.css"],
+        entry: [__dirname + "/src/requiredProductVariant.ts", __dirname + "/src/index.css"],
         mode: 'development',
         externals: {
             'jquery': 'jQuery'

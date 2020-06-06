@@ -98,10 +98,10 @@ var RequiredProductVariant =
 
 /***/ }),
 
-/***/ "./src/requiredProductVariant.ts":
-/*!***************************************!*\
-  !*** ./src/requiredProductVariant.ts ***!
-  \***************************************/
+/***/ "./src/index.ts":
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -184,13 +184,13 @@ exports.RequiredProductVariant = RequiredProductVariant;
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./src/requiredProductVariant.ts ./src/index.css ***!
-  \*************************************************************/
+/*!********************************************!*\
+  !*** multi ./src/index.ts ./src/index.css ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/jp/git/tildaRequiredProductVariant/src/requiredProductVariant.ts */"./src/requiredProductVariant.ts");
+__webpack_require__(/*! /home/jp/git/tildaRequiredProductVariant/src/index.ts */"./src/index.ts");
 module.exports = __webpack_require__(/*! /home/jp/git/tildaRequiredProductVariant/src/index.css */"./src/index.css");
 
 
@@ -208,4 +208,4 @@ module.exports = jQuery;
 /***/ })
 
 /******/ });
-//# sourceMappingURL=RequiredProductVariant.js.map
+//# sourceMappingURL=lib.js.map
