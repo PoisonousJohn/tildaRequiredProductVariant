@@ -26,8 +26,7 @@ export class RequiredProductVariant {
 
     bindProductPopupEvents() {
         const submitBtn = jQuery('.t-store__prod-popup__container a')
-        submitBtn.off('click')
-        submitBtn.click((event) => {
+        submitBtn.bindFirst('click', (event) => {
             if (this.validateProductVariantRequired()) {
                 event.preventDefault()
                 event.stopPropagation()
@@ -76,5 +75,4 @@ export class RequiredProductVariant {
         setTimeout(() => this.init(), 1000)
     }
 }
-
 
