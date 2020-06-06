@@ -1,3 +1,5 @@
+include:
+  - dist/main.css
 exclude:
   - src
   - .eslintrc
