@@ -71,7 +71,8 @@ export class RequiredProductVariant {
             console.log('ready')
             this.init()
         })
-        setTimeout(() => this.init(), 100)
+        this.init()
+        setTimeout(() => this.init(), 1000)
     }
 }
 
