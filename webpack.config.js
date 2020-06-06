@@ -1,12 +1,11 @@
 var webpack = require('webpack');
 var path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (function (options) {
 
     return {
-        entry: [__dirname + "/src/requiredProductVariant.ts", __dirname + "/src/index.css"],
-        mode: 'development',
+        entry: __dirname + "/src/requiredProductVariant.ts",
+        mode: 'production',
         externals: {
             'jquery': 'jQuery'
         },
@@ -22,11 +21,6 @@ module.exports = (function (options) {
         module: {
             "rules": [
                 {
-                    test: /\.css$/i,
-                    exclude: /node_modules/,
-                    use: [MiniCssExtractPlugin.loader, 'css-loader'],
-                },
-                {
                     "test": /\.tsx?$/,
                     "exclude": /node_modules/,
                     "use": {
@@ -39,9 +33,7 @@ module.exports = (function (options) {
             ]
         },
 
-        plugins: [
-            new MiniCssExtractPlugin()
-        ],
+        plugins: [],
 
         resolve: {
             extensions: ['.ts', '.js', '.json']
