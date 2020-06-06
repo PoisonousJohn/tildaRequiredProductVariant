@@ -208,4 +208,4 @@ module.exports = jQuery;
 /***/ })
 
 /******/ });
-//# sourceMappingURL=lib.js.map
+//# sourceMappingURL=RequiredProductVariant.js.map

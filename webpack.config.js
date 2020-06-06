@@ -13,7 +13,7 @@ module.exports = (function (options) {
 
         output: {
             path: __dirname + "/dist",
-            filename: "lib.js",
+            filename: "RequiredProductVariant.js",
             library: "RequiredProductVariant"
         },
 
@@ -23,7 +23,7 @@ module.exports = (function (options) {
             "rules": [
                 {
                     test: /\.css$/i,
-                    "exclude": /node_modules/,
+                    exclude: /node_modules/,
                     use: [MiniCssExtractPlugin.loader, 'css-loader'],
                 },
                 {
