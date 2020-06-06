@@ -67,6 +67,7 @@ export class RequiredProductVariant {
                 })
             })
         })
+        setTimeout(() => this.setup(), 100)
     }
 }
 
