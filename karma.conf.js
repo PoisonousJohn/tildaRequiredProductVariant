@@ -3,7 +3,7 @@ const path = require("path")
 
 const webpackConfig = require('./webpack.config.js')
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     basePath: "",
     frameworks: ["mocha", "chai"],
@@ -21,17 +21,17 @@ module.exports = function(config) {
       require("karma-webpack"),
       require("karma-mocha"),
       require("karma-chai"),
-      require("karma-chrome-launcher"),
+      require("karma-firefox-launcher"),
     ],
     mime: {
-      'text/x-typescript': ['ts','tsx']
+      'text/x-typescript': ['ts', 'tsx']
     },
     reporters: ["dots"],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ["Chrome"],
+    browsers: ["Firefox"],
     singleRun: false
   });
 };

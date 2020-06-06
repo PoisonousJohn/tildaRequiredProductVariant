@@ -5,7 +5,7 @@ module.exports = (function (options) {
 
     return {
         entry: __dirname + "/src/index.ts",
-        mode: 'development',
+        mode: 'production',
         externals: {
             'jquery': 'jQuery'
         },
@@ -13,7 +13,7 @@ module.exports = (function (options) {
         output: {
             path: __dirname + "/dist",
             filename: "lib.js",
-            library: "lib"
+            library: "RequiredProductVariant"
         },
 
         devtool: 'source-map',
