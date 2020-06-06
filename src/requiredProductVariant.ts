@@ -53,21 +53,25 @@ export class RequiredProductVariant {
         return isError
     }
 
+    init() {
+        jQuery('.js-product:has(.js-product-edition-option-variants) a[href="#order"]').each((_, htmlEl) => {
+            const el = jQuery(htmlEl)
+            el.off('click')
+            el.click((e) => {
+                this.onProductCardClick(el)
+                e.preventDefault()
+                e.stopImmediatePropagation()
+                e.stopPropagation()
+            })
+        })
+    }
+
     setup() {
         jQuery(document).ready(() => {
             console.log('ready')
-            jQuery('.js-product:has(.js-product-edition-option-variants) a[href="#order"]').each((_, htmlEl) => {
-                const el = jQuery(htmlEl)
-                el.off('click')
-                el.click((e) => {
-                    this.onProductCardClick(el)
-                    e.preventDefault()
-                    e.stopImmediatePropagation()
-                    e.stopPropagation()
-                })
-            })
+            this.init()
         })
-        setTimeout(() => this.setup(), 100)
+        setTimeout(() => this.init(), 100)
     }
 }
 
