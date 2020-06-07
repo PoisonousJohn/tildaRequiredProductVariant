@@ -1,5 +1,15 @@
 import * as jQuery from "jquery"
 
+export { }
+declare global {
+    interface Window {
+        tcart__addEvent__links: () => void
+    }
+    interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
+        bindFirst(event: string, callback: (event: Event) => any): void
+    }
+}
+
 export class RequiredProductVariant {
     getVariantErrorElement() {
         return jQuery('.t-store__prod-popup__container .t-input-error')
