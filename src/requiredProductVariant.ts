@@ -56,14 +56,21 @@ export class RequiredProductVariant {
     init() {
         jQuery('.js-product:has(.js-product-edition-option-variants) a[href="#order"]').each((_, htmlEl) => {
             const el = jQuery(htmlEl)
-            el.off('click')
-            el.click((e) => {
+            el.bindFirst('click', (e) => {
                 this.onProductCardClick(el)
                 e.preventDefault()
                 e.stopImmediatePropagation()
                 e.stopPropagation()
+                return false
             })
         })
+    }
+
+    wrapFunc(sourceFunc: () => void, callback: () => void) {
+        return () => {
+            sourceFunc()
+            callback()
+        }
     }
 
     setup() {
@@ -72,6 +79,7 @@ export class RequiredProductVariant {
             this.init()
         })
         this.init()
+        window.tcart__addEvent__links = this.wrapFunc(window.tcart__addEvent__links, () => this.init())
         setTimeout(() => this.init(), 1000)
     }
 }
