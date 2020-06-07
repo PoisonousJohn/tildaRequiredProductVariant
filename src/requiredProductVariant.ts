@@ -26,6 +26,7 @@ export class RequiredProductVariant {
 
     bindProductPopupEvents() {
         const submitBtn = jQuery('.t-store__prod-popup__container a')
+        if (submitBtn.attr('requiredProductVariantEventSet')) return
         submitBtn.bindFirst('click', (event) => {
             if (this.validateProductVariantRequired()) {
                 event.preventDefault()
@@ -33,8 +34,8 @@ export class RequiredProductVariant {
                 event.stopImmediatePropagation()
             }
         })
+        submitBtn.attr('requiredProductVariantEventSet', 'true')
         this.getVariantSelector().change(() => this.validateProductVariantRequired())
-        window.tcart__addEvent__links()
     }
 
     /**
@@ -54,16 +55,18 @@ export class RequiredProductVariant {
     }
 
     init() {
-        jQuery('.js-product:has(.js-product-edition-option-variants) a[href="#order"]').each((_, htmlEl) => {
-            const el = jQuery(htmlEl)
-            el.bindFirst('click', (e) => {
-                this.onProductCardClick(el)
-                e.preventDefault()
-                e.stopImmediatePropagation()
-                e.stopPropagation()
-                return false
+        jQuery('.js-product:has(.js-product-edition-option-variants) a.t-store__card__btn[href="#order"]')
+            .each((_, htmlEl) => {
+                const el = jQuery(htmlEl)
+                el.off('click')
+                el.click((e) => {
+                    this.onProductCardClick(el)
+                    e.preventDefault()
+                    e.stopImmediatePropagation()
+                    e.stopPropagation()
+                    return false
+                })
             })
-        })
     }
 
     wrapFunc(sourceFunc: () => void, callback: () => void) {
